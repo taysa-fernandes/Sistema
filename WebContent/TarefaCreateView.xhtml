@@ -1,0 +1,60 @@
+<html>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<head>
+<link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<title>Cadastrar tarefa</title>
+	</head>
+	<body>
+		<div class="cadastrar">
+			<ui:define name="title">
+		Cadastrar tarefa
+	</ui:define>
+		</div>
+
+		<ui:define name="content">
+
+			<form action="/Sistema/ControllerTarefa" method="get">
+				<input type="hidden" name="situacao" value="em andamento" />
+				<h3>Título:</h3>
+				<input type="text" name="titulo" value="" /> <br></br>
+				<fieldset>
+					<div class="textarea">
+						<h3>Descrição:</h3>
+						<input type="text" name="descricao" value="" />
+					</div>
+				</fieldset>
+				<br></br>
+				<h3>Responsável:</h3>
+				
+				<select onchange="this.nextElementSibling.value=this.value" value=""
+					name="responsavel">
+					<option value=""></option>
+					<option value="João">João</option>
+					<option value="Antônio">Antônio</option>
+				</select>
+				<h3>Prioridade:</h3>
+				<select onchange="this.nextElementSibling.value=this.value" value=""
+					name="prioridade">
+					<option value=""></option>
+					<option value="Baixa">Baixa</option>
+					<option value="média">média</option>
+					<option value="alta">alta</option>
+				</select> <br></br>
+				<h3>Deadline:</h3>
+				<input id="date" type="date" name="data" value="" /> <br></br>
+				<div class="centro">
+					<input class="centro" type="submit" value="Cadastrar" />
+				</div>
+			</form>
+
+		</ui:define>
+	</body>
+</ui:composition>
+</html>
+

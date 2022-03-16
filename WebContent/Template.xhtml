@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet" href="styles.css" />
+</h:head>
+
+<body>
+	<p:growl id="messages" showDetail="true" />
+	<div class="menu-div">
+		<div class="menu-div-h1">
+			<h1 class="header-h1">
+				<ui:insert name="title">Title</ui:insert>
+			</h1>
+		</div>
+
+		<div class="menu-div-button">
+			<h:form>
+				<p:commandButton id="dynaButton" value="Menu" type="button"
+					icon="fa fa-fw fa-ellipsis-h" styleClass="button" />
+
+				<p:menu overlay="true" trigger="dynaButton" my="left top"
+					at="left bottom">
+					<p:submenu label="Home">
+						<p:menuitem value="Home" action="#{menuController.getHome()}"
+							update="messages" icon="fa fa-fw fa-home" ajax="false" />
+					</p:submenu>
+
+					<p:submenu label="Tarefa">
+						<p:menuitem value="Create"
+							action="#{menuController.getTarefaCreateView()}"
+							update="messages" icon="fa fa-fw fa-list" ajax="false" />
+						<p:menuitem value="List"
+							action="#{menuController.getTarefaListView()}" update="messages"
+							icon="fa fa-fw fa-plus" ajax="false" />
+						<p:menuitem value="Update"
+							action="#{menuController.getTarefaUpdateView()}"
+							update="messages" icon="fa fa-fw fa-plus" ajax="false" />
+						<p:menuitem value="Update"
+							action="#{menuController.getTarefaConcluirView()}"
+							update="messages" icon="fa fa-fw fa-plus" ajax="false" />
+					</p:submenu>
+
+				</p:menu>
+			</h:form>
+		</div>
+	</div>
+
+	<br />
+	<br />
+
+	<ui:insert name="content">Default content</ui:insert>
+
+
+
+</body>
+</html>
